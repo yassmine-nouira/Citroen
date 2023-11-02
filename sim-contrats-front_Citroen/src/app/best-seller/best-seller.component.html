@@ -3,11 +3,10 @@
         <div class="uk-grid">
             <div class="uk-width-1-1 uk-margin-bottom bold-weight">
                 <span class="title black-color" style="padding: 2%; font-size: 30px; font-weight: bold; padding-left: 0; color: #000;">
-                    CALCUL DE SERVICE COMPLET</span>
+                    CALCULATEUR DE BUDGET POUR VOS CONTRATS DE SERVICES </span>
                 <p class="other-size regular-weight">
-                    Vous pouvez calculer notre offre spéciale en choisissant votre modèle de véhicule, le type de
-                    contrat, la durée de
-                    contrat souhaitée et le kilométrage.
+                    Vous pouvez calculer votre contrat de services en choisissant le modèle de votre véhicule, le type de
+                    contrat, la durée du contrat souhaitée et le kilométrage.
                 </p>
             </div>
         </div>
@@ -18,7 +17,7 @@
                 <div class="uk-grid-small service-price-form" uk-grid>
                     
                     <mat-form-field class="uk-width-1-1">
-                        <label>Modèle Vehicule</label>
+                        <label>Modèle</label>
                         <mat-select [(ngModel)]="mvtarget" (selectionChange)="onSelectModelv($event)" placeholder="--">
                             <mat-option *ngFor="let modelevs of modelev" [value]="modelevs">{{modelevs}}</mat-option>
 
@@ -33,7 +32,7 @@
 
                     </mat-form-field>
                     <mat-form-field class="uk-width-1-2@m uk-width-1-1">
-                        <label> Durée de garantie</label>
+                        <label> Durée</label>
                         <mat-select [(ngModel)]="dureetarget" (selectionChange)="onSelectDureeGarantie($event)"
                             placeholder="--">
                             <mat-option *ngFor="let durees of dureeGarantie" [value]="durees">{{durees}}
@@ -41,7 +40,7 @@
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="uk-width-1-2@m uk-width-1-1">
-                        <label>Kilométrage</label>
+                        <label>Km</label>
                         <mat-select [(ngModel)]="ktarget" (selectionChange)="onSelectKm($event)" placeholder="--" >
                             <mat-option *ngFor="let kms of km" [value]="kms">
                                 {{kms | number}}
@@ -76,7 +75,14 @@
                     </div>
                 </div>
 
+                <div class="uk-width-1-1 uk-margin-bottom uk-grid-margin uk-first-column" style="padding-top: 0; padding-bottom: 0;">
+                    <p class="small-size" style="text-align: justify;">
+                        <span style="color: red;">*</span>Ces prix sont à titre indicatif et sont valables au moment de l'achat du véhicule.
+STAFIM se réserve le droit de modifier les prix et le contenu sans préavis.
+Pour plus d’informations, consultez votre Point Service PEUGEOT.
+                    </p>
 
+                </div>
 
                 <!-- #ACTIVE DIV -->
 
@@ -87,7 +93,7 @@
 
                 
                 <div class="contact-form satis-sonrasi-cover">
-                    <div class="span"><span class="title">Laissez vos coordonnées et nous vous appellerons.</span></div>
+                    <div class="span"><span class="title">Merci de laisser vos coordonnées, un conseiller commercial vous contactera.</span></div>
                     <form   [formGroup]="demandeForm" id="ctl00" class="uk-grid-small arti-garanti-satis-sonrasi" uk-grid="">
                        
 
@@ -95,8 +101,8 @@
                             <mat-label>Nom</mat-label>
                             <input matInput formControlName="nom" required type="text">
                             <mat-error *ngIf="demandeForm.controls.nom.touched && demandeForm.controls.nom.invalid">
-                                <span *ngIf="demandeForm.controls.nom.errors.required" >Email is required</span>
-                                <span *ngIf="demandeForm.controls.nom.errors.pattern" >Email is invalid</span>
+                                <span *ngIf="demandeForm.controls.nom.errors.required" >Nom est obligatoire</span>
+                                <span *ngIf="demandeForm.controls.nom.errors.pattern" >Nom n'est pas valide</span>
                             </mat-error>
                         </mat-form-field>
 
@@ -104,8 +110,8 @@
                             <mat-label>Prénom</mat-label>
                             <input matInput formControlName="prenom" required type="text">
                             <mat-error *ngIf="demandeForm.controls.prenom.touched && demandeForm.controls.prenom.invalid">
-                                <span *ngIf="demandeForm.controls.prenom.errors.required" >Email is required</span>
-                                <span *ngIf="demandeForm.controls.prenom.errors.pattern" >Email is invalid</span>
+                                <span *ngIf="demandeForm.controls.prenom.errors.required" >Prénom est obligatoire</span>
+                                <span *ngIf="demandeForm.controls.prenom.errors.pattern" >Prénom n'est pas valide</span>
                             </mat-error>
                         </mat-form-field>
 
@@ -113,8 +119,8 @@
                             <mat-label>Tel</mat-label>
                             <input matInput formControlName="tel" required type="text">
                             <mat-error *ngIf="demandeForm.controls.tel.touched && demandeForm.controls.tel.invalid">
-                                <span *ngIf="demandeForm.controls.tel.errors.required" >Email is required</span>
-                                <span *ngIf="demandeForm.controls.tel.errors.pattern" >Email is invalid</span>
+                                <span *ngIf="demandeForm.controls.tel.errors.required" >Tel est obligatoire</span>
+                                <span *ngIf="demandeForm.controls.tel.errors.pattern" >Tel n'est pas valide</span>
                             </mat-error>
                         </mat-form-field>
 
@@ -122,19 +128,20 @@
                             <mat-label>Email</mat-label>
                             <input matInput formControlName="email" required type="text">
                             <mat-error *ngIf="demandeForm.controls.email.touched && demandeForm.controls.email.invalid">
-                                <span *ngIf="demandeForm.controls.email.errors.required" >Email is required</span>
-                                <span *ngIf="demandeForm.controls.email.errors.pattern" >Email is invalid</span>
+                                <span *ngIf="demandeForm.controls.email.errors.required" >Email est obligatoire</span>
+                                <span *ngIf="demandeForm.controls.email.errors.pattern" >Email n'est pas valide</span>
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field apearance="standard" class="uk-width-1-2@m uk-width-1-1">
-                            <mat-label>Mat</mat-label>
+                            <mat-label>Immatriculation</mat-label>
                             <input matInput formControlName="matricule" required type="text">
                             <mat-error *ngIf="demandeForm.controls.matricule.touched && demandeForm.controls.matricule.invalid">
-                                <span *ngIf="demandeForm.controls.matricule.errors.required" >Email is required</span>
-                                <span *ngIf="demandeForm.controls.matricule.errors.pattern" >Email is invalid</span>
+                                <span *ngIf="demandeForm.controls.matricule.errors.required" >Immatriculation est obligatoire</span>
+                                <span *ngIf="demandeForm.controls.matricule.errors.pattern" >Immatriculation n'est pas valide</span>
                             </mat-error>
                         </mat-form-field>
+                       
                        
                     
                         <div class="uk-width-1-1">
@@ -153,6 +160,67 @@
 
                     </p>
                 </div>
+                
+            </div>
+
+
+
+
+        </div>
+
+        <div style="display: flex; align-items: center;  justify-content: center; text-align: left; " >
+
+            <div  style="padding-top: 10%; max-width:800px; flex-basis: 40%; margin:0px auto;" >
+                
+                <span style="padding-right: 10px;  font-size: 20.5px; font-weight: bold;  color: #000; text-align: center;">
+                    PERSONNALISEZ VOTRE CONTRAT DE SERVICE
+                        <br>
+                 <span  class="small-size"  style=" font-size: 16px; text-align: justify; color: #787B83;">
+                    "Pour moi, il s'agit d'un service sur mesure qui correspond à mes besoins"</span>
+                </span>
+                <br>
+                <br><br>
+                <img src="../assets/img/photo citroen.webp"  >
+            </div>
+    
+    
+            <div  style="padding-top: 10%; max-width: 800px; flex-basis: 40%; order:2; margin:0px auto; " >
+                <span style="padding-right: 10px;  font-size: 20.5px; font-weight: bold;  color: #000; text-align: center;">
+                    CONTRAT D’ENTRETIEN SANS SURPRISE
+                        <br>
+                 <span  class="small-size"  style="font-size: 16px; text-align: justify; color: #787B83;">
+                    "Pour moi, il s’agit de budgétiser mes prestations d’entretien en toute sérénité."</span>
+                    <br>
+                </span>
+                <br>
+                 <img src="../assets/img/photo citroen 2.webp"  >
+            </div>
+               
+            </div>
+
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-margin-bottom bold-weight">
+                <span class="para" style=" padding: 2%; font-size: 30px; font-weight: bold; padding-left: 0; color: #000;">
+                    Pourquoi choisir une extension de garantie et/ou un contrat de service
+
+                    Citroën pour ma voiture ?</span>
+                <p class="other-size regular-weight" style="text-align: justify;">
+                    Un contrat de services ne vous permet pas seulement de répartir les coûts d'entretien de
+votre véhicule, mais il vous offre également des services supplémentaires précieux pour
+vous simplifier la vie. La meilleure solution est de souscrire à un contrat de services en
+même temps que l'achat de votre véhicule afin de le protéger dès le départ. Un contrat
+d'extension de garantie prolonge la garantie du constructeur au-delà de sa durée
+contractuelle (souscription possible dans les 24 premiers mois suivant la livraison de
+votre véhicule neuf). Cela signifie que vous bénéficiez d'une protection étendue et fiable
+pour une période plus longue, vous offrant une tranquillité d'esprit. En souscrivant un
+contrat d'entretien, vous avez également l'avantage de pouvoir planifier plus facilement
+les entretiens réguliers de votre véhicule. Les contrats d'entretien Citroën vous offrent
+une gamme de services comprenant les entretiens périodiques, le remplacement des
+pièces d'usure, l'assistance et bien plus encore (souscription possible avant 10 000 Km).
+Avec ces contrats, vous avez l'assurance que votre véhicule sera pris en charge par des
+professionnels qualifiés, ce qui vous permet de profiter pleinement de votre véhicule tout
+au long de sa durée de vie.
+                </p>
             </div>
         </div>
     </div>
